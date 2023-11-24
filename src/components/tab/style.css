@@ -1,0 +1,118 @@
+/* .tab-div{
+    width: 500px;
+    height: 70px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+}
+.tab-div ul{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 100%;
+    border: 1 solid black;
+    /* background-color: yellowgreen; 
+    list-style-type: none;
+    padding-left: 0;
+}
+.tab-div ul li{
+    color: blueviolet;
+    list-style-type: none;
+    padding-left: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua; 
+    width: 70px;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1;
+}
+.icon{
+    position: relative;
+    display: block;
+    font-size: 30px;
+    line-height: 80px;
+     background-color: cornsilk;
+    transform: translateY(5px);
+    color: black;
+    transition-duration: 0.3s;
+}
+
+.tab-div ul li.active .icon{
+    transform: translateY(-50%);
+}
+.tab-div ul li .text{
+    position: absolute;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0;
+    transition-duration: 0.3s;
+    transform: translateY(20px);
+}
+
+.tab-div ul li.active .text{
+    opacity: 1;
+    transform: translateY(10px);
+}
+.indicator{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-color: #00D100;
+    top: -47px;
+    left: -5px;
+    border-radius: 50%;
+    border: 5px solid black;
+    transition-duration: 0.3s;
+}
+.indicator::before{
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    top: 42px;
+    left: -16px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 10px; 
+    box-shadow: 0px -10px 0 0 #000000;
+}
+.indicator::after{
+    position: absolute;
+    content: "";
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    top: 42px;
+    right: -16px;
+    border-top-left-radius: 15px;
+    border-tosp-left-radius: 10px; 
+    box-shadow: 0px -10px 0 0 #000000;
+} */
+/* li:nth-child(1).active ~ .indicator {
+    transform: translateX(calc(95px * 0));
+}
+li:nth-child(2).active ~ .indicator {
+    transform: translateX(calc(95px * 1));
+}
+li:nth-child(3).active ~ .indicator {
+    transform: translateX(calc(95px * 2));
+}
+li:nth-child(4).active ~ .indicator {
+    transform: translateX(calc(95px * 3));
+}
+li:nth-child(5).active ~ .indicator {
+    transform: translateX(calc(95px * 4));
+} */
+
+.shadow-class{
+    box-shadow: 0px -10px 0 0 #000000;
+}
