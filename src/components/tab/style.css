@@ -1,4 +1,4 @@
-/* .tab-div{
+.tab-div{
     width: 500px;
     height: 70px;
     background-color: white;
@@ -15,7 +15,6 @@
     width: 90%;
     height: 100%;
     border: 1 solid black;
-    /* background-color: yellowgreen; 
     list-style-type: none;
     padding-left: 0;
 }
@@ -28,7 +27,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: aqua; 
     width: 70px;
     height: 100%;
     cursor: pointer;
@@ -39,14 +37,13 @@
     display: block;
     font-size: 30px;
     line-height: 80px;
-     background-color: cornsilk;
     transform: translateY(5px);
     color: black;
     transition-duration: 0.3s;
 }
 
 .tab-div ul li.active .icon{
-    transform: translateY(-50%);
+    transform: translateY(-130%);
 }
 .tab-div ul li .text{
     position: absolute;
@@ -67,8 +64,7 @@
     width: 70px;
     height: 70px;
     background-color: #00D100;
-    top: -47px;
-    left: -5px;
+    top: -40px;
     border-radius: 50%;
     border: 5px solid black;
     transition-duration: 0.3s;
@@ -78,11 +74,11 @@
     position: absolute;
     width: 15px;
     height: 15px;
-    background-color: white;
-    top: 42px;
+    background-color: #ffffff;
+    top: 35px;
     left: -16px;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 10px; 
+    border-top-right-radius: 20px;
+    /* border-top-left-radius: 10px;  */
     box-shadow: 0px -10px 0 0 #000000;
 }
 .indicator::after{
@@ -90,14 +86,14 @@
     content: "";
     width: 15px;
     height: 15px;
-    background-color: white;
-    top: 42px;
+    background-color: #ffffff;
+    top: 35px;
     right: -16px;
-    border-top-left-radius: 15px;
-    border-tosp-left-radius: 10px; 
+    border-top-left-radius:27px;
+    /* border-top-left-radius: 10px;  */
     box-shadow: 0px -10px 0 0 #000000;
-} */
-/* li:nth-child(1).active ~ .indicator {
+} 
+li:nth-child(1).active ~ .indicator {
     transform: translateX(calc(95px * 0));
 }
 li:nth-child(2).active ~ .indicator {
@@ -111,8 +107,8 @@ li:nth-child(4).active ~ .indicator {
 }
 li:nth-child(5).active ~ .indicator {
     transform: translateX(calc(95px * 4));
-} */
-
-.shadow-class{
-    box-shadow: 0px -10px 0 0 #000000;
 }
+
+/* .shadow-class{
+    box-shadow: 0px -10px 0 0 #000000;
+} */
