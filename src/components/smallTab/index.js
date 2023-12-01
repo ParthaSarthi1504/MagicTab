@@ -1,4 +1,4 @@
-import './style.css'
+import './index.css'
 import { IoHome } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 import { MdPhotoCamera } from "react-icons/md";
@@ -15,7 +15,7 @@ const makeAciveLink =(activeListIndex) =>{
     })
 }
 
-function Tab() {
+function SmallTab() {
     return (
         <div className='tab-div'>
             <ul>
@@ -45,5 +45,5 @@ function Tab() {
     )
 }
 
-export default Tab;
+export default SmallTab;
 

@@ -1,9 +1,13 @@
 import './App.css';
-import Tab from './components/tab';
+import LeftBar from './components/leftBar/leftBar';
+import SmallTab from './components/smallTab';
 
 function App() {
   return (
-    <Tab/>
+    // <SmallTab />
+    <div className='h-screen '>
+      <LeftBar/>
+    </div>
   );
 }
 
