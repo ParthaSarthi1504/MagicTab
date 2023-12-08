@@ -1,21 +1,15 @@
-import React, { useEffect, useState } from "react";
-import "./leftBar.css";
-// import { NavLink } from "react-router-dom";
+import React, {  useEffect, useState } from "react";
+import "./magicLeftBar.css";
 import {
   HomeIcon,
   ChannelsIcon,
-  //   ChevronDownIcon,
-  //   ChevronRightIcon,
 } from "../../icons/";
-// import { useLocation } from "react-router-dom";
 import { IoHome } from "react-icons/io5";
 
-const Leftbar = (props) => {
-  //   const location = useLocation()
-  const { displaySideText, setDisplaySideText } = props;
-  const [isSideBarOpened, setIsSideBarOpened] = useState(false);
-  const [isOpenListingAttribute,setIsOpenListingAttribute] = useState(false)
-  const [menuList, setMenuList] = useState([
+function MagicLeftBar() {
+    const [isSideBarOpened, setIsSideBarOpened] = useState(false);
+    const [isOpenListingAttribute,setIsOpenListingAttribute] = useState(false)
+    const [menuList, setMenuList] = useState([
     {
       name: "Dashboard",
       imageType: "svg",
@@ -135,19 +129,6 @@ const Leftbar = (props) => {
     }
   ]);
 
-  const makeAciveLink = (sectionName) => {
-    const listItems = document.querySelectorAll("li");
-    listItems.forEach((eachListItem) => {
-      console.log(eachListItem.children[1].innerHTML);
-      const childName = eachListItem.children[1].innerHTML;
-      eachListItem.classList.remove("active");
-      if (childName === sectionName) {
-        eachListItem.classList.add("active");
-      }
-    });
-    console.log('activelist==>',listItems);
-  };
-
   useEffect(() => {
     const listItems = document.querySelectorAll("li");
     listItems.forEach((eachListItem) => {
@@ -165,7 +146,7 @@ const Leftbar = (props) => {
   }, []);
 
   useEffect(()=>{
-    const childListItems = document.querySelectorAll(".leftbar__ul__list__child");
+    const childListItems = document.querySelectorAll("  .leftbar__ul__list__child");
     if (isOpenListingAttribute){
       childListItems.forEach((eachListItem) => {
        eachListItem.style.display = "flex";
@@ -177,6 +158,19 @@ const Leftbar = (props) => {
     }
   },[isOpenListingAttribute]);
 
+  const makeAciveLink = (sectionName) => {
+    const listItems = document.querySelectorAll("li");
+    listItems.forEach((eachListItem) => {
+      console.log(eachListItem.children[1].innerHTML);
+      const childName = eachListItem.children[1].innerHTML;
+      eachListItem.classList.remove("active");
+      if (childName === sectionName) {
+        eachListItem.classList.add("active");
+      }
+    });
+    console.log('activelist==>',listItems);
+  };
+
   const handleOpenCloseSideBar = () => {
     if (isSideBarOpened){
       setIsSideBarOpened(false);
@@ -184,6 +178,7 @@ const Leftbar = (props) => {
       listItems.forEach((eachListItem) => {
         eachListItem.children[1].style.display = "none";
       });
+      document.querySelector('.leftbar_container').style.width = '60px';
     }else{
       setIsSideBarOpened(true);
       const listItems = document.querySelectorAll("li");
@@ -191,6 +186,7 @@ const Leftbar = (props) => {
       listItems.forEach((eachListItem) => {
         eachListItem.children[1].style.display = "flex";
       });
+      document.querySelector('.leftbar_container').style.width = '280px';
     }
   };
 
@@ -211,36 +207,37 @@ const Leftbar = (props) => {
     }
   }
 
-  const renderEachSection = (section,liClassName="leftbar__ul__list",liIconClassName="leftbar__ul__list__icon",liTextClassName="leftbar__ul__list__text")=>{
+  const renderEachSection = (section,liClassName="leftbar_container__ul__list",liIconClassName="leftbar_container__ul__list__icon",liTextClassName="leftbar_container__ul__list__text",blockClassName="block1")=>{
     // console.log(section);
     const name = section.hasOwnProperty("name")? section.name : section.childName;
     console.log(name);
     return (
-      <li className={liClassName} onClick={(e)=>makeAciveLink(name)}>
-        <IoHome className={liIconClassName}/>
-        <p className={liTextClassName}>{name}</p>
-      </li>
+        <>
+        <li className={liClassName} onClick={(e)=>makeAciveLink(name)}>
+            <IoHome className={liIconClassName}/>
+            <p className={liTextClassName}>{name}</p>
+            <b className={blockClassName}></b>
+        </li>
+      </>
     );
   }
 
-  // renderEachSection({name: 'sarathi'})
-
   const mappingArray = (list,type='parent')=>{
     return(
-      <>
+      <ul className="leftbar_container__ul">
       {
         list?.map((eachSection)=>{
           if (eachSection.hasOwnProperty("children")) {
               return(
                 <>
                   {/* {renderEachSection(eachSection)} */}
-                  <li className="leftbar__ul__list" onClick={handleOpenSubSections}>
-                    <IoHome className="leftbar__ul__list__icon"/>
-                    <p className="leftbar__ul__list__text">{eachSection.name}</p>
+                  <li className="leftbar_container__ul__list" onClick={handleOpenSubSections}>
+                    <div className="leftbar_container__ul__list__icon"><IoHome /></div>
+                    <p className="leftbar_container__ul__list__text">{eachSection.name}</p>
                     <button>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                      </svg>
+                      </svg>       
                     </button>
                   </li>
                   {
@@ -250,60 +247,53 @@ const Leftbar = (props) => {
               )
               {/* return mappingArray(eachSection.children) */}
           }else{
-              return type === 'parent' ? renderEachSection(eachSection) : renderEachSection(eachSection,"leftbar__ul__list__child","leftbar__ul__list__icon__child","leftbar__ul__list__text__child")
+              return type === 'parent' ? renderEachSection(eachSection) : renderEachSection(eachSection,"leftbar_container__ul__list__child","leftbar_container__ul__list__icon__child","leftbar_container__ul__list__text__child","child_block")
           }
         })
       }
-    </>
+    </ul>
     )
   }
 
-  return (
-    <div className="leftbar">
-      <ul className="leftbar__ul">
-        {mappingArray(menuList)}
+    return (
+        <div className="leftbar_container">
+          {mappingArray(menuList)}
+  
+          <button  onClick={handleOpenCloseSideBar}>
+              {!isSideBarOpened ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="w-6 h-6 leftbar_container__leftbar__Arrow"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="w-6 h-6 leftbar_container__leftbar__Arrow"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
+                  />
+                </svg>)
+              }
+          </button>
+      </div>
+    )
+}
 
-        {/* <========== Indicator container ============> */}
-        <div className="lefbar__indicator">
-          <div className="lefbar__indicator__roll"></div>
-        </div>
-
-        <button className="leftbar__Arrow" onClick={handleOpenCloseSideBar}>
-            {!isSideBarOpened ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
-                />
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
-                />
-              </svg>)
-            }
-        </button>
-      </ul>
-    </div>
-  );
-};
-
-export default React.memo(Leftbar);
+export default MagicLeftBar;
